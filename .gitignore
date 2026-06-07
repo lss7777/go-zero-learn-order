@@ -1,0 +1,32 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Output of go coverage
+*.out
+
+# Dependency directories
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude internal (embedded repos + local config)
+.claude/ai-context/
+.claude/skills/zero-skills/
+.claude/settings.local.json

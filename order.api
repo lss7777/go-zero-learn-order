@@ -1,0 +1,37 @@
+syntax = "v1"
+
+type SearchRequest {
+	OrderNo string `json:"orderNo" form:"orderNo"`
+}
+
+type OrderInfo {
+	Id              int64   `json:"id"`
+	OrderNo         string  `json:"orderNo"`
+	UserId          int64   `json:"userId"`
+	Status          int64   `json:"status"`
+	TotalAmount     float64 `json:"totalAmount"`
+	DiscountAmount  float64 `json:"discountAmount"`
+	PayAmount       float64 `json:"payAmount"`
+	PaymentMethod   int64   `json:"paymentMethod"`
+	TransactionNo   string  `json:"transactionNo"`
+	PaymentTime     string  `json:"paymentTime,optional"`
+	ReceiverName    string  `json:"receiverName"`
+	ReceiverPhone   string  `json:"receiverPhone"`
+	ReceiverAddress string  `json:"receiverAddress"`
+	ExpressCompany  string  `json:"expressCompany,optional"`
+	ExpressNo       string  `json:"expressNo,optional"`
+	Remark          string  `json:"remark"`
+	CreatedAt       string  `json:"createdAt"`
+	UpdatedAt       string  `json:"updatedAt"`
+}
+
+type SearchResponse {
+	OrderInfo OrderInfo `json:"orderInfo"`
+	UserName  string    `json:"userName"`
+}
+
+service order-api {
+	@handler Search
+	get /order/search (SearchRequest) returns (SearchResponse)
+}
+

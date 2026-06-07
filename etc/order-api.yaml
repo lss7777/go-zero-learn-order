@@ -1,0 +1,24 @@
+Name: order-api
+Host: 0.0.0.0
+Port: 8888
+
+Log:
+  serviceName: order-api
+  mode: file
+  encoding: json
+  level: info
+  path: ./logs
+  keepDays: 7
+  compress: true
+  rotation: daily
+
+MySQL:
+  DataSource: root:root123456@tcp(127.0.0.1:3306)/db1?charset=utf8mb4&parseTime=true&loc=Local
+
+BizRedis:
+  Host: 127.0.0.1:6379
+  Type: node
+  Pass: ""
+
+UserRpcConf:
+  Target: consul://127.0.0.1:8500/user.UserService?wait=14s
