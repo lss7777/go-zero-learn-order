@@ -2,6 +2,7 @@ package svc
 
 import (
 	"order/internal/config"
+	"order/internal/interceptors"
 	"order/model"
 
 	"user-rpc/userservice"
@@ -27,6 +28,8 @@ func NewServiceContext(c config.Config) *ServiceContext {
 				Weight:    100,
 			},
 		}),
-		UserRpc: userservice.NewUserService(zrpc.MustNewClient(c.UserRpcConf)),
+		UserRpc: userservice.NewUserService(zrpc.MustNewClient(c.UserRpcConf,
+			zrpc.WithUnaryClientInterceptor(interceptors.AuthUnaryInterceptor),
+		)),
 	}
 }

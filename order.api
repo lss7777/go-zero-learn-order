@@ -1,7 +1,7 @@
 syntax = "v1"
 
 type SearchRequest {
-	OrderNo string `json:"orderNo" form:"orderNo"`
+	OrderNo string `form:"orderNo"`
 }
 
 type OrderInfo {

@@ -6,6 +6,8 @@ package handler
 import (
 	"net/http"
 
+	"order/internal/response"
+
 	"github.com/zeromicro/go-zero/rest/httpx"
 	"order/internal/logic"
 	"order/internal/svc"
@@ -25,7 +27,7 @@ func SearchHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		if err != nil {
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
-			httpx.OkJsonCtx(r.Context(), w, resp)
+			httpx.OkJsonCtx(r.Context(), w, response.Success(resp))
 		}
 	}
 }
